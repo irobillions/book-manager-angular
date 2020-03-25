@@ -40,7 +40,11 @@ export class SigninComponent implements OnInit {
     this.authService.signInUser(user).then(
       () => {
         console.log('connexion reussie');
-        this.router.navigate(['/books']);
+        this.router.navigate(['/books']).then(
+          () => {
+            alert('Bienvenue!');
+          }
+        );
       },
       (error) => {
         this.errorMessage = error;
